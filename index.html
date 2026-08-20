@@ -108,9 +108,31 @@
         /* Language visibility logic */
         [data-lang="ru"] .lang-en { display: none !important; }
         [data-lang="en"] .lang-ru { display: none !important; }
+
+        /* Mobile Adaptation */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .header-banner {
+                /* Увеличиваем отступ сверху, чтобы текст не наезжал на кнопки */
+                padding: 70px 15px 25px 15px; 
+            }
+            .header-banner h1 {
+                font-size: 22px; /* Слегка уменьшаем заголовок */
+            }
+            .lang-switcher {
+                /* Центрируем переключатель языков сверху на узких экранах */
+                top: 15px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            .content {
+                padding: 20px 15px; /* Уменьшаем боковые отступы для удобства чтения */
+            }
+        }
     </style>
 </head>
-<!-- По умолчанию ставим русский язык -->
 <body data-lang="ru">
 <div class="container">
     <div class="header-banner">
@@ -259,15 +281,12 @@
 
 <script>
     function setLang(lang) {
-        // Меняем атрибут на body
         document.body.setAttribute('data-lang', lang);
         
-        // Обновляем активную кнопку
         document.getElementById('btn-ru').classList.remove('active');
         document.getElementById('btn-en').classList.remove('active');
         document.getElementById('btn-' + lang).classList.add('active');
         
-        // Меняем язык самого тега html для поисковиков
         document.documentElement.lang = lang;
     }
 </script>
