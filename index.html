@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyRail — Политика конфиденциальности / Privacy Policy</title>
+    <title>SkyRail — Privacy Policy</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,11 +22,13 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             overflow: hidden;
+            position: relative;
         }
         .header-banner {
             background-color: #0052cc;
             padding: 30px 20px;
             text-align: center;
+            position: relative;
         }
         .header-banner h1 {
             color: #ffffff;
@@ -35,11 +37,36 @@
             font-weight: 600;
             letter-spacing: 1px;
         }
-        .header-banner span {
-            font-size: 20px;
-            font-weight: 400;
-            opacity: 0.9;
+        
+        /* Language Switcher Styles */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            border-radius: 6px;
         }
+        .lang-switcher button {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .lang-switcher button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .lang-switcher button.active {
+            background: #ffffff;
+            color: #0052cc;
+        }
+
         .content {
             padding: 30px 40px;
             color: #333333;
@@ -77,81 +104,172 @@
             color: #555555;
             font-size: 14px;
         }
+
+        /* Language visibility logic */
+        [data-lang="ru"] .lang-en { display: none !important; }
+        [data-lang="en"] .lang-ru { display: none !important; }
     </style>
 </head>
-<body>
+<!-- По умолчанию ставим русский язык -->
+<body data-lang="ru">
 <div class="container">
     <div class="header-banner">
-        <h1>SkyRail — Политика конфиденциальности<br><span>Privacy Policy</span></h1>
+        
+        <div class="lang-switcher">
+            <button id="btn-ru" class="active" onclick="setLang('ru')">RU</button>
+            <button id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+
+        <h1 class="lang-ru">SkyRail — Политика конфиденциальности</h1>
+        <h1 class="lang-en">SkyRail — Privacy Policy</h1>
     </div>
 
     <div class="content">
-        <h2>1. Общие положения / General Provisions</h2>
-        <p>Настоящая Политика конфиденциальности описывает порядок сбора, использования и защиты информации пользователей игры SkyRail. Используя приложение, вы соглашаетесь с условиями данной Политики.</p>
-        <p>This Privacy Policy describes how user information is collected, used, and protected in the SkyRail game. By using the application, you agree to this Privacy Policy.</p>
+        <!-- Секция 1 -->
+        <h2 class="lang-ru">1. Общие положения</h2>
+        <h2 class="lang-en">1. General Provisions</h2>
+        
+        <p class="lang-ru">Настоящая Политика конфиденциальности описывает порядок сбора, использования и защиты информации пользователей игры SkyRail. Используя приложение, вы соглашаетесь с условиями данной Политики.</p>
+        <p class="lang-en">This Privacy Policy describes how user information is collected, used, and protected in the SkyRail game. By using the application, you agree to this Privacy Policy.</p>
 
-        <h2>2. Собираемые данные / Data We Collect</h2>
-        <p><strong>Мы можем собирать следующую информацию:</strong></p>
-        <ul>
+        <!-- Секция 2 -->
+        <h2 class="lang-ru">2. Собираемые данные</h2>
+        <h2 class="lang-en">2. Data We Collect</h2>
+        
+        <p class="lang-ru"><strong>Мы можем собирать следующую информацию:</strong></p>
+        <p class="lang-en"><strong>We may collect the following information:</strong></p>
+        
+        <ul class="lang-ru">
             <li>Имя пользователя (username), создаваемое пользователем внутри игры;</li>
-            <li>Адрес электронной почты (опционально, для привязки аккаунта SkyRailID и восстановления пароля) / Email address (optional, for SkyRailID account binding and password recovery);</li>
+            <li>Адрес электронной почты (опционально, для привязки аккаунта SkyRailID и восстановления пароля);</li>
             <li>Идентификаторы устройства, включая Advertising ID;</li>
             <li>Техническую информацию об устройстве (версия ОС, язык, регион);</li>
             <li>Игровые события и действия, необходимые для работы игровых механик;</li>
             <li>Сообщения в мультиплеерном чате (обрабатываются только для обеспечения работы чата).</li>
         </ul>
-        <p>All collected data is limited to what is necessary for core gameplay, security, analytics, and advertising functionality.</p>
+        <ul class="lang-en">
+            <li>Username created by the user within the game;</li>
+            <li>Email address (optional, for SkyRailID account binding and password recovery);</li>
+            <li>Device identifiers, including Advertising ID;</li>
+            <li>Technical device information (OS version, language, region);</li>
+            <li>In-game events and actions required for core gameplay mechanics;</li>
+            <li>Multiplayer chat messages (processed solely to ensure chat functionality).</li>
+        </ul>
+        
+        <p class="lang-ru">Все собранные данные ограничиваются тем, что необходимо для основной игры, безопасности, аналитики и рекламных функций.</p>
+        <p class="lang-en">All collected data is limited to what is necessary for core gameplay, security, analytics, and advertising functionality.</p>
 
-        <h2>3. Использование данных / How We Use Data</h2>
-        <ul>
+        <!-- Секция 3 -->
+        <h2 class="lang-ru">3. Использование данных</h2>
+        <h2 class="lang-en">3. How We Use Data</h2>
+        
+        <ul class="lang-ru">
             <li>Обеспечение работы аккаунта и игровых функций;</li>
             <li>Поддержка мультиплеера и чата;</li>
-            <li>Отправка транзакционных писем (коды подтверждения и сброса пароля) / Sending transactional emails (verification and password reset codes);</li>
+            <li>Отправка транзакционных писем (коды подтверждения и сброса пароля);</li>
             <li>Предотвращение мошенничества и нарушений;</li>
             <li>Показ рекламы и аналитика эффективности рекламы;</li>
             <li>Улучшение качества игры.</li>
         </ul>
+        <ul class="lang-en">
+            <li>Ensuring account and game functionality;</li>
+            <li>Supporting multiplayer and chat features;</li>
+            <li>Sending transactional emails (verification and password reset codes);</li>
+            <li>Preventing fraud and policy violations;</li>
+            <li>Displaying ads and analyzing ad performance;</li>
+            <li>Improving overall game quality.</li>
+        </ul>
 
-        <h2>4. Реклама и сторонние сервисы / Advertising and Third-Party Services</h2>
-        <p>В игре используется реклама, предоставляемая следующими сторонними сервисами:</p>
+        <!-- Секция 4 -->
+        <h2 class="lang-ru">4. Реклама и сторонние сервисы</h2>
+        <h2 class="lang-en">4. Advertising and Third-Party Services</h2>
+        
+        <p class="lang-ru">В игре используется реклама и сервисы, предоставляемые следующими сторонними партнерами:</p>
+        <p class="lang-en">The game uses ads and services provided by the following third-party partners:</p>
+        
         <ul>
             <li>Google AdMob</li>
-            <li>Unity LevelPlay (медиация рекламы)</li>
-            <li>Firebase (Google LLC) — Database & Authentication</li>
-            <li>ZeptoMail (Zoho Corporation) — Email delivery service</li>
+            <li>Unity LevelPlay (медиация рекламы / ad mediation)</li>
+            <li>Firebase (Google LLC) — База данных и авторизация / Database & Authentication</li>
+            <li>ZeptoMail (Zoho Corporation) — Сервис доставки email / Email delivery service</li>
         </ul>
-        <p>Эти сервисы могут использовать Advertising ID, файлы cookie или аналогичные технологии для показа персонализированной или неперсонализированной рекламы в соответствии с настройками пользователя и требованиями законодательства.</p>
+        
+        <p class="lang-ru">Эти сервисы могут использовать Advertising ID, файлы cookie или аналогичные технологии для показа персонализированной или неперсонализированной рекламы в соответствии с настройками пользователя и требованиями законодательства.</p>
+        <p class="lang-en">These services may use Advertising IDs, cookies, or similar technologies to show personalized or non-personalized ads according to user settings and legal requirements.</p>
+        
         <p>Google AdMob Privacy Policy:<br><a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
         <p>Unity Privacy Policy:<br><a href="https://unity.com/legal/privacy-policy" target="_blank">https://unity.com/legal/privacy-policy</a></p>
 
-        <h2>5. Персонализированная и детская реклама / Personalized & Children Advertising</h2>
-        <p>Приложение может быть доступно пользователям всех возрастов. Для пользователей, подпадающих под требования детских и семейных политик Google (COPPA, GDPR-K), реклама может показываться в неперсонализированном виде.</p>
-        <p>The app may display non-personalized ads for users subject to child-directed or family policies.</p>
+        <!-- Секция 5 -->
+        <h2 class="lang-ru">5. Персонализированная и детская реклама</h2>
+        <h2 class="lang-en">5. Personalized & Children Advertising</h2>
+        
+        <p class="lang-ru">Приложение может быть доступно пользователям всех возрастов. Для пользователей, подпадающих под требования детских и семейных политик Google (COPPA, GDPR-K), реклама может показываться в неперсонализированном виде.</p>
+        <p class="lang-en">The app may be available to users of all ages. For users subject to Google's child-directed or family policies (COPPA, GDPR-K), ads may be displayed in a non-personalized format.</p>
 
-        <h2>6. Аккаунты и удаление данных / Accounts and Data Deletion</h2>
-        <p>Для создания базового аккаунта требуется только имя пользователя. Пользователи могут добровольно предоставить адрес электронной почты для защиты аккаунта (SkyRailID) и восстановления пароля. Другие реальные персональные данные не запрашиваются.</p>
-        <p>A basic account requires only a username. Users may voluntarily provide an email address to secure their account (SkyRailID) and enable password recovery. No other real personal data is requested.</p>
-        <p>Запрос на удаление аккаунта и связанных данных можно отправить через:<br><a href="https://skywalkerone.github.io/SkyRailAccountDeletionInfo/" target="_blank">https://skywalkerone.github.io/SkyRailAccountDeletionInfo/</a></p>
+        <!-- Секция 6 -->
+        <h2 class="lang-ru">6. Аккаунты и удаление данных</h2>
+        <h2 class="lang-en">6. Accounts and Data Deletion</h2>
+        
+        <p class="lang-ru">Для создания базового аккаунта требуется только имя пользователя. Пользователи могут добровольно предоставить адрес электронной почты для защиты аккаунта (SkyRailID) и восстановления пароля. Другие реальные персональные данные не запрашиваются.</p>
+        <p class="lang-en">A basic account requires only a username. Users may voluntarily provide an email address to secure their account (SkyRailID) and enable password recovery. No other real personal data is requested.</p>
+        
+        <p class="lang-ru">Запрос на удаление аккаунта и связанных данных можно отправить через:<br><a href="https://skywalkerone.github.io/SkyRailAccountDeletionInfo/" target="_blank">https://skywalkerone.github.io/SkyRailAccountDeletionInfo/</a></p>
+        <p class="lang-en">A request to delete your account and associated data can be submitted via:<br><a href="https://skywalkerone.github.io/SkyRailAccountDeletionInfo/" target="_blank">https://skywalkerone.github.io/SkyRailAccountDeletionInfo/</a></p>
 
-        <h2>7. Хранение и защита данных / Data Security</h2>
-        <p>Все данные передаются по защищённым каналам связи. Разработчик принимает разумные технические и организационные меры для защиты информации пользователей.</p>
+        <!-- Секция 7 -->
+        <h2 class="lang-ru">7. Хранение и защита данных</h2>
+        <h2 class="lang-en">7. Data Security</h2>
+        
+        <p class="lang-ru">Все данные передаются по защищённым каналам связи. Разработчик принимает разумные технические и организационные меры для защиты информации пользователей.</p>
+        <p class="lang-en">All data is transmitted via secure communication channels. The developer implements reasonable technical and organizational measures to protect user information.</p>
 
-        <h2>8. Ограничение ответственности / Limitation of Liability</h2>
-        <p>Приложение предоставляется «как есть». Разработчик не несёт ответственности за возможные убытки, возникшие в результате использования приложения.</p>
+        <!-- Секция 8 -->
+        <h2 class="lang-ru">8. Ограничение ответственности</h2>
+        <h2 class="lang-en">8. Limitation of Liability</h2>
+        
+        <p class="lang-ru">Приложение предоставляется «как есть». Разработчик не несёт ответственности за возможные убытки, возникшие в результате использования приложения.</p>
+        <p class="lang-en">The application is provided "as is". The developer bears no liability for any potential losses arising from the use of the application.</p>
 
-        <h2>9. Изменения политики / Changes to This Policy</h2>
-        <p>Разработчик оставляет за собой право изменять данную Политику конфиденциальности. Обновлённая версия вступает в силу с момента публикации.</p>
+        <!-- Секция 9 -->
+        <h2 class="lang-ru">9. Изменения политики</h2>
+        <h2 class="lang-en">9. Changes to This Policy</h2>
+        
+        <p class="lang-ru">Разработчик оставляет за собой право изменять данную Политику конфиденциальности. Обновлённая версия вступает в силу с момента публикации.</p>
+        <p class="lang-en">The developer reserves the right to modify this Privacy Policy. The updated version takes effect immediately upon publication.</p>
 
-        <h2>10. Контактная информация / Contact Information</h2>
-        <p>По всем вопросам, связанным с конфиденциальностью, вы можете связаться с разработчиком:<br>Email: <a href="mailto:support@skytechdev.dev">support@skytechdev.dev</a> (или <a href="mailto:vusenkoa51@gmail.com">vusenkoa51@gmail.com</a>)</p>
+        <!-- Секция 10 -->
+        <h2 class="lang-ru">10. Контактная информация</h2>
+        <h2 class="lang-en">10. Contact Information</h2>
+        
+        <p class="lang-ru">По всем вопросам, связанным с конфиденциальностью, вы можете связаться с технической поддержкой:<br>Email: <a href="mailto:skyrail.support@gmail.com">skyrail.support@gmail.com</a></p>
+        <p class="lang-en">For all privacy-related inquiries, you can contact our technical support:<br>Email: <a href="mailto:skyrail.support@gmail.com">skyrail.support@gmail.com</a></p>
 
-        <h2>11. Официальный источник / Official Distribution</h2>
-        <p>Игра официально распространяется только через Google Play:<br><a href="https://play.google.com/store/apps/details?id=com.skytech.rail_simulator" target="_blank">https://play.google.com/store/apps/details?id=com.skytech.rail_simulator</a></p>
+        <!-- Секция 11 -->
+        <h2 class="lang-ru">11. Официальный источник</h2>
+        <h2 class="lang-en">11. Official Distribution</h2>
+        
+        <p class="lang-ru">Игра официально распространяется только через Google Play:<br><a href="https://play.google.com/store/apps/details?id=com.skytech.rail_simulator" target="_blank">https://play.google.com/store/apps/details?id=com.skytech.rail_simulator</a></p>
+        <p class="lang-en">The game is officially distributed exclusively through Google Play:<br><a href="https://play.google.com/store/apps/details?id=com.skytech.rail_simulator" target="_blank">https://play.google.com/store/apps/details?id=com.skytech.rail_simulator</a></p>
 
-        <div class="date-footer">
-            Дата вступления в силу / Effective Date: 06.04.2025
-        </div>
+        <div class="date-footer lang-ru">Дата вступления в силу: 06.04.2025</div>
+        <div class="date-footer lang-en">Effective Date: 06.04.2025</div>
     </div>
 </div>
+
+<script>
+    function setLang(lang) {
+        // Меняем атрибут на body
+        document.body.setAttribute('data-lang', lang);
+        
+        // Обновляем активную кнопку
+        document.getElementById('btn-ru').classList.remove('active');
+        document.getElementById('btn-en').classList.remove('active');
+        document.getElementById('btn-' + lang).classList.add('active');
+        
+        // Меняем язык самого тега html для поисковиков
+        document.documentElement.lang = lang;
+    }
+</script>
 </body>
 </html>
